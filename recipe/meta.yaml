@@ -13,20 +13,20 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
+  noarch: python
   entry_points:
     - multi-model-server = mms.model_server:start
     - multi-model-export = mms.export_model:main
-  skip: True  # [win or osx]
 
 requirements:
   build:
     - openjdk 8.*
   host:
-    - python
+    - python >= 3.6
     - pip
   run:
-    - python
+    - python >= 3.6
     - psutil
     - pillow
     - future
