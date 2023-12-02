@@ -1,5 +1,5 @@
 {% set name = "multi-model-server" %}
-{% set version = "1.1.8" %}
+{% set version = "1.1.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/awslabs/multi-model-server/archive/v{{ version }}.tar.gz
-  sha256: 64876dbfd56671d34aedc40ec8de7988bd3ed25c3806cd463aaa62c094890ab8
+  sha256: 5ad465b20ff9219680f5a8cf661120992ea23b259d023a01a5a599ec3e97c22e
   patches:
     - skip-tests.patch
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   noarch: python
   entry_points:
     - multi-model-server = mms.model_server:start
@@ -42,7 +42,7 @@ test:
 
 about:
   home: https://github.com/awslabs/multi-model-server
-  summary: 'Multi Model Server (MMS) is a flexible and easy to use tool for serving deep learning models trained using any ML/DL framework.'
+  summary: Multi Model Server (MMS) is a flexible and easy to use tool for serving deep learning models trained using any ML/DL framework.
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE.txt
