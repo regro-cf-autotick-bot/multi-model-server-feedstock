@@ -13,7 +13,7 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - multi-model-server = mms.model_server:start
@@ -23,10 +23,10 @@ requirements:
   build:
     - openjdk 8.*
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - psutil
     - pillow
     - future
@@ -36,6 +36,7 @@ test:
   requires:
     - pip
     - openjdk 8.*
+    - python {{ python_min }}
   commands:
     - pip check
     - multi-model-server --help
